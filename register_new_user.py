@@ -3,6 +3,10 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from pyunitreport import HTMLTestRunner
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 class RegisterNewUser(unittest.TestCase):
     
@@ -44,12 +48,13 @@ class RegisterNewUser(unittest.TestCase):
                         and newsletter.is_enabled()
                         and submit_button.is_enabled())
         
-        first_name.send_keys("Test")
-        middle_name.send_keys("Test")
-        last_name.send_keys("Test")
-        email.send_keys("Test@test.com")
-        password.send_keys("Test11111")
-        confirm_password.send_keys("Test11111")
+        first_name.send_keys(os.getenv("FIRST_NAME"))
+        middle_name.send_keys(os.getenv("MIDDLE_NAME"))
+        last_name.send_keys(os.getenv("LAST_NAME"))
+        email.send_keys(os.getenv("EMAIL"))
+        PASSWORD = os.getenv("PASSWORD")
+        password.send_keys(PASSWORD)
+        confirm_password.send_keys(PASSWORD)
         newsletter.click()
         submit_button.click()
 
