@@ -9,7 +9,7 @@ import os
 
 load_dotenv()
 
-class RegisterNewUser(unittest.TestCase):
+class SelectLanguage(unittest.TestCase):
     
     @classmethod
     def setUpClass(cls):
